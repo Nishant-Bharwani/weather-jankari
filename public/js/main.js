@@ -117,12 +117,11 @@ const getTempInfo = async(event) => {
             dot3.style.background = "#fff";
             dot4.style.background = "#fff";
             dot5.style.background = "#fff";
-            let url = `http://api.openweathermap.org/data/2.5/weather?q=${cityNameValue}&units=metric&appid=8e46ce41d5da30f0ad8d420142bd4205`;
+            let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityNameValue}&units=metric&appid=8e46ce41d5da30f0ad8d420142bd4205`;
 
             const response = await fetch(url);
             const data = await response.json();
             const arrData = [data];
-            // temp.innerHTML = `<span class="tempValue">${arrData[0].main.temp}<sup>o</sup>C</span>`;
             city__temp.innerHTML = `${arrData[0].main.temp}`;
             unit.innerHTML = `<sup id="superscript">o</sup>C`;
             tempreature = arrData[0].main.temp;
@@ -130,7 +129,7 @@ const getTempInfo = async(event) => {
             kel = tempreature + 273.15;
             far = far.toFixed(2);
             kel = kel.toFixed(2);
-            // tempStatus.innerHTML =
+
             let tempStatus2 = arrData[0].weather[0].main;
             msg.innerHTML = `${arrData[0].name}, ${arrData[0].sys.country}`;
             msg2.innerHTML = `${arrData[0].name}, ${arrData[0].sys.country}`;
@@ -147,7 +146,7 @@ const getTempInfo = async(event) => {
                 tempStatus.innerHTML = "<i class='fas fa-cloud' aria-hidden='true' style='color: #f1f2f6'></i>";
             }
 
-            let AQIUrl = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${arrData[0].coord.lat}&lon=${arrData[0].coord.lon}&appid=8e46ce41d5da30f0ad8d420142bd4205`;
+            let AQIUrl = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${arrData[0].coord.lat}&lon=${arrData[0].coord.lon}&appid=8e46ce41d5da30f0ad8d420142bd4205`;
             latitude = `${arrData[0].coord.lat}`;
             longitude = `${arrData[0].coord.lon}`;
 
@@ -213,16 +212,6 @@ const getTempInfo = async(event) => {
 
 
 
-            // function initMap() {
-            //     var options = {
-            //         zoom: 8,
-            //         center: { lat: arrData[0].coord.lat, lng: arrData[0].coord.lon },
-            //     }
-            // }
-
-            // var map = new google.maps.Map(document.getElementById('map'), options);
-
-
         } catch {
             msg.innerHTML = `Enter a Valid City Name`;
             msg2.innerHTML = `Enter a Valid City Name`;
@@ -240,11 +229,6 @@ const getTempInfo = async(event) => {
 submitBtn.addEventListener('click', getTempInfo);
 btnUp.addEventListener('click', changeUnitUp);
 btnDown.addEventListener('click', changeUnitDown);
-
-
-// latLngData = `${latitude} ${longitude}`;
-
-// fs.writeFileSync('../latitudeLongitude/latlng.txt');
 
 
 function changeUnitUp() {
