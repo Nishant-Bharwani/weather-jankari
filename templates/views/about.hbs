@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{>headerLinks}}
+    <title>About Me</title>
+</head>
+
+<body style="background: none;">
+    {{>header}}
+    {{!-- <h1>About Page</h1> --}}
+    <div class="container-fluid main_header mt-2" style="background: none;">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="row hero_section">
+                    <div class="col-md-6 col-12 main_header_right align-items-center" data-aos="fade-right" data-aos-duration="1500">
+                        <figure>
+                            <img src="./images/about.png" alt="" class="about-img">
+                        </figure>
+                    </div>
+                    <div class="col-md-6 col-12 main_header_left">
+                        <p style="font-size: 2.6rem;font-weight: normal;">Hi, I am <span
+                                title="Nishant Bharwani">Nishant Bharwani;</span> A Web Developer. </p>
+                        <h1 style="color: rebeccapurple; font-weight:normal;">Familiar with <span
+                                id="main_header_site_title" class="typewriter" data-wait="1500"
+                                data-words='["Bootstrap.", "Node.js", "Express.js"]'></span> </h1>
+                        <button class="btn" title="Know More">Know More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>footer}}
+
+    <script src="./js/typewriter.js"></script>
+    <script src="./js/aos.js"></script>
+</body>
+
+</html>

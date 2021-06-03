@@ -1,0 +1,15 @@
+{
+    "name": "weatherjankari",
+    "version": "1.0.0",
+    "description": "This is a weather information app, which gets the weather information through a real-time API.",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Nishant Bharwani",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1",
+        "hbs": "^4.1.2"
+    }
+}

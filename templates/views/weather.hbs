@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{>headerLinks}}
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+
+    <title>Weather Info</title>
+</head>
+
+<body style="background: none;">
+    {{>header}}
+    <div class="container-fluid main_header mt-2">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="main_form_wrapper" data-aos="fade-down" data-aos-duration="1500">
+                    <form action="" class="city_form">
+                        <input type="text" id="cityName" name="cityName" placeholder="Search your Location"
+                            autocomplete="off">
+                        <input type="submit" value="search" id="submitBtn" title="Search">
+                    </form>
+                </div>
+                {{!--
+                <div class="tempInfo">
+                    <div class="top_layer">
+                        <p id="day">Thursday</p>
+                        <p id="date">13 MAY</p>
+                    </div>
+
+                    <div class="main_layer">
+                        <p id="city_name"></p>
+                        <div class="middle_layer data_hide">
+                            <p id="temp"><span id="tempratureNumber">0</span> <sup>o</sup>
+
+                            </p>
+                            <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
+                        </div>
+                    </div>
+                </div> --}}
+
+                <div class="row hero_section" style="justify-content: center;">
+                    <div class="col-md-6 col-12 main_header_left">
+                        <div class="tempInfo">
+                            <div class="top_layer">
+                                <p id="day"></p>
+                                <p id="date"></p>
+                            </div>
+
+                            <div class="main_layer">
+                                <p class="city_name" id="msg">get output here</p>
+                                <div class="status_layer data_hide">
+                                    <div>
+                                        <p id="temp_status" data-aos="zoom-in" data-aos-duration="1500"></p>
+                                        {{!-- <div>
+                                            <i class="fas fa-chevron-down"></i>
+                                            <div class="unit">C</div>
+                                            <i class="fas fa-chevron-up"></i>
+                                        </div> --}}
+                                    </div>
+                                    <div class="unit-convert">
+                                        <p id="temp" style="align-self: center;"><span class="tempValue" id="city__temp"></p>
+                                        <div class="CelfarK">
+                                            <i class="fas fa-chevron-up unit_change_btn_up"></i>
+                                            <div class="unit"><sup id="superScript">o</sup>C</div>
+                                            <i class="fas fa-chevron-down unit_change_btn_down"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{!-- AQI Info --}}
+                        <div class="tempInfo">
+                            <div class="top_layer">
+                                <p>Current Air Quality</p>
+                                <div class="aqi_rating">
+                                    <div class="dot" id="dot1"></div>
+                                    <div class="dot" id="dot2"></div>
+                                    <div class="dot" id="dot3"></div>
+                                    <div class="dot" id="dot4"></div>
+                                    <div class="dot" id="dot5"></div>
+                                </div>
+                            </div>
+                            <div class="main_layer">
+                                <div class="map_and_city">
+                                    <p class="city_name" id="msg2">Get Output Here</p>                 
+                                </div>
+                                <div class="status_layer data_hide">
+                                    <p id="aqi_status" style="color: white;" class="align-items-center"></p>
+                                    <p id="aqi_icon" style="color: #fff;" data-aos="zoom-in" data-aos-duration="1500">
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        {{!-- Air Components --}}
+                        <div class="tempInfo" id="air_comp">
+                            <div class="top_layer">
+                                <p>Air Components</p>
+                            </div>
+                            <div class="main_layer">
+                                <p class="city_name" id="msg3">Get Output Here</p>
+                                <div class="status_layer data_hide">
+                                    <ul id="components">
+                                        <li id="component" data-aos="fade-right" data-aos-duration="500">
+                                            <div class="component_name">CO</div>
+                                            <div class="component_value" id="co"></div>
+                                        </li>
+                                        <hr>
+                                        <li id="component" data-aos="fade-right" data-aos-duration="500">
+                                            <div class="component_name">NO</div>
+                                            <div class="component_value" id="no"></div>
+                                        </li>
+                                        <hr>
+                                        <li id="component" data-aos="fade-right" data-aos-duration="500">
+                                            <div class="component_name">NO<sub>2</sub></div>
+                                            <div class="component_value" id="no2"></div>
+                                        </li>
+                                        <hr>
+                                        <li id="component" data-aos="fade-right" data-aos-duration="500">
+                                            <div class="component_name">O<sub>3</sub></div>
+                                            <div class="component_value" id="o3"></div>
+                                        </li>
+                                        <hr>
+                                        <li id="component" data-aos="fade-right" data-aos-duration="500">
+                                            <div class="component_name">SO<sub>2</sub></div>
+                                            <div class="component_value" id="so2"></div>
+                                        </li>
+                                        <hr>
+
+                                        <li id="component" data-aos="fade-right" data-aos-duration="500">
+                                            <div class="component_name">pm10</div>
+                                            <div class="component_value" id="pm10"></div>
+                                        </li>
+                                        <hr>
+                                        <li id="component" data-aos="fade-right" data-aos-duration="500">
+                                            <div class="component_name">NH<sub>3</sub></div>
+                                            <div class="component_value" id="nh3"></div>
+                                        </li>
+                                        <hr>
+                                        <div class="unit-msg">Unit: &mu;g/cm<sup>3</sup></div>
+                                        <hr>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        {{!-- Other Stats --}}
+                        <div class="tempInfo" style="margin-bottom: 4rem;" id="other">
+                            <div class="top_layer">
+                                <p>Other Statistics</p>
+                            </div>
+
+                            <div class="main_layer">
+                                <p class="city_name" id="msg4">Get Output Here</p>
+                                <div class="status_layer data_hide">
+                                    <ul id="components_other">
+                                        <li id="component_other">
+                                            <div class="component_name">Wind Speed</div>
+                                            <div class="component_value" id="windSpeed" data-aos="fade-left"
+                                                data-aos-duration="500"></div>
+                                        </li>
+                                        <hr>
+                                        <li id="component">
+                                            <div class="component_name">Visibility</div>
+                                            <div class="component_value" id="visibility" data-aos="fade-left"
+                                                data-aos-duration="500"></div>
+                                        </li>
+                                        <hr>
+                                        <li id="component">
+                                            <div class="component_name">Pressure</div>
+                                            <div class="component_value" id="pressure" data-aos="fade-left"
+                                                data-aos-duration="500"></div>
+                                        </li>
+                                        <hr>
+                                        <li id="component">
+                                            <div class="component_name">Humidity</div>
+                                            <div class="component_value" id="humidity" data-aos="fade-left"
+                                                data-aos-duration="500"></div>
+                                        </li>
+                                        <hr>
+
+                                        <div class="unit-msg">Units: Metric</div>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>footer}}
+    <script src="./js/main.js"></script>
+    <script src="./js/aos.js"></script>
+</body>
+
+
+</html>
