@@ -1,9 +1,3 @@
-// const fs = require("fs");
-// import { fs } from "fs";
-// import { createRequire } from 'module';
-// const require = createRequire(
-//     import.meta.url);
-
 const cityName = document.querySelector('#cityName');
 const submitBtn = document.querySelector('#submitBtn');
 const msg = document.getElementById('msg');

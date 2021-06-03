@@ -26,12 +26,10 @@ app.use(express.static(staticFilesPath));
 
 // Routing Handeled here.
 app.get("/", (req, res) => {
-    // res.send("Weather Jankari");
     res.render("index");
 });
 
 app.get("/about", (req, res) => {
-    // res.send("About page");
     res.render("about");
 });
 
