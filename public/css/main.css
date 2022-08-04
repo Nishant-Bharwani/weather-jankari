@@ -22,6 +22,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #ebebeb;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -200,7 +201,6 @@ h1 {
     height: 25rem;
     width: 25rem;
     object-fit: cover;
-    /* float: right; */
     transform: scale(1.2);
     border-radius: 50%;
 }
@@ -419,16 +419,15 @@ h1 {
     flex-wrap: wrap;
 }
 
-#footer .footer-logo {
-    text-align: center;
-    color: yellow;
-    font-size: 5.5rem;
-}
 
 #footer .icons {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+#footer .icons a {
+    color: #fff;
 }
 
 .icons-about {
@@ -437,16 +436,20 @@ h1 {
     justify-content: space-evenly;
 }
 
+#footer .icons svg {
+    width: 40px;
+    height: 40px;
+}
+
 .icons-about svg {
     width: 30px;
     height: 30px;
-    /* border-radius: 50%; */
 }
 
 .icons-about a {
     font-size: 4rem;
     color: #fff;
-    margin-right: 40px;
+    margin-right: 60px;
 }
 
 .icons-about a:hover {
