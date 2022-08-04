@@ -197,8 +197,12 @@ h1 {
 }
 
 .about-img {
-    height: 52rem;
-    width: 40rem;
+    height: 25rem;
+    width: 25rem;
+    object-fit: cover;
+    /* float: right; */
+    transform: scale(1.2);
+    border-radius: 50%;
 }
 
 .typewriter>.txt {
@@ -427,6 +431,36 @@ h1 {
     justify-content: space-evenly;
 }
 
+.icons-about {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.icons-about svg {
+    width: 30px;
+    height: 30px;
+    /* border-radius: 50%; */
+}
+
+.icons-about a {
+    font-size: 4rem;
+    color: #fff;
+    margin-right: 40px;
+}
+
+.icons-about a:hover {
+    color: var(--main-color);
+}
+
+#yt-icon {
+    color: #fff;
+}
+
+#yt-icon:hover {
+    color: #c4302b;
+}
+
 #footer .icons a {
     font-size: 4rem;
     color: #fff;
@@ -545,8 +579,8 @@ h1 {
         margin-top: 3rem;
     }
     .about-img {
-        height: 40rem;
-        width: 35rem;
+        height: 25rem;
+        width: 25rem;
     }
     .main_header_left h1 {
         font-size: 3rem;
