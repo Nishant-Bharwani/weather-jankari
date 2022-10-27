@@ -202,7 +202,6 @@ h1 {
     width: 25rem;
     object-fit: cover;
     transform: scale(1.2);
-    border-radius: 50%;
 }
 
 .typewriter>.txt {
